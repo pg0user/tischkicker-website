@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tischkicker</title>
+    <link rel="stylesheet" href="style.css" />
+
+
+</head>
+<body>
+
+<section id="start-section" class="section start-container ">
+    <div class="start start-block">
+        <h1 class="start--title">Cooler Projektname</h1>
+        <p class="submit">
+            <a class="btn" id="start--btn">Start!</a>
+        </p>
+    </div>
+    <div class="start start-info">
+        <h3 class="start-date">Projektmesse 2023</h3>
+        <div class="start-credit">
+            <p>Hanna Stanyak</p>
+            <p>Amela Arnautova</p>
+            <p>Chiara Kulzer</p>
+        </div>
+    </div>
+</section>
+
+<section id="team-section" class="section team-container hidden">
+    <div>
+        <h1 class="team--headline">Team Einstellungen</h1>
+        <div class="team">
+            <div class="team--player team--player-1">
+                <h3>Team Rot</h3>
+                <form>
+                    <input type="text" name="team--name" class="team--name" id="team--name-0" placeholder="Team Name..." maxlength="28"/>
+                </form>
+                <section>
+                    <div class="container">
+                        <h1 class="title">Wählt euren Kämpfer:</h1>
+                        <div class="select-container select-container_0"></div>
+                        <!-- AUDIO:
+                        <audio autobuffer="autobuffer" autoplay="autoplay" loop="true">
+                          <source
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/813538/02.%20Player%20Select.mp3"
+                            type="audio/ogg"
+                          />
+                        </audio>
+                        -->
+                    </div>
+                </section>
+            </div>
+            <div class="team--player team--player-0">
+                <h3 class="team--color">Team Blau</h3>
+                <form>
+                    <input type="text" name="team--name" class="team--name" id="team--name-1" placeholder="Team Name..." maxlength="28"/>
+                </form>
+                <section>
+                    <div class="container">
+                        <h1 class="title title-red">Wählt euren Kämpfer:</h1>
+                        <div class="select-container select-container_1"></div>
+                        <!-- AUDIO:
+                        <audio autobuffer="autobuffer" autoplay="autoplay" loop="true">
+                          <source
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/813538/02.%20Player%20Select.mp3"
+                            type="audio/ogg"
+                          />
+                        </audio>
+                        -->
+                    </div>
+                </section>
+            </div>
+        </div>
+        <form>
+            <div class="submit">
+                <p><a class="btn" id="team--btn">Spiel starten</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="counter-section" class="section clock-container hidden">
+    <div class="clock">
+        <span id="seconds"></span>
+    </div>
+    <div class="fade-transition hidden"></div>
+</section>
+
+<section id="score-section" class="section score-container hidden">
+    <div class="score">
+        <div class="score-images">
+            <div class="score--img-container score--img-container-0">
+                <img class="score--img" src="./assets/images/profile/meditate.jpg" width="120px" height="120px">
+            </div>
+            <div class="score--img-container score--img-container-1">
+                <img class="score--img" src="./assets/images/profile/good_boi.jpg" width="120px" height="120px">
+            </div>
+        </div>
+        <div class="score-players">
+            <p class="score--name score--name-0"></p>
+            <div class="score--values">
+                <p class="values score--value-0">0</p>
+                <p class="values score--value-1">0</p>
+            </div>
+            <p class="score--name score--name-1"></p>
+        </div>
+    </div>
+    <!--<a href="https://www.freepik.com/free-vector/scoreboard-templates-set-with-electronic-display-score-space-team-names-can-be-used-sport-bars-cricket-game-baseball-basketball-football-hockey-matches_10173531.htm#query=game%20score&position=6&from_view=keyword&track=ais">Image by pch.vector</a> on Freepik-->
+</section>
+
+</body>
+<script src="script.js"></script>
+</html>

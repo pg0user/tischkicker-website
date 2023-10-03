@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import "global";
+@import "characters";
+@import "game";
+@import "score";
+@import "font";
