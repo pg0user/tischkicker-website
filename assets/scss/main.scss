@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@import "font";
 @import "global";
 @import "characters";
 @import "game";
 @import "score";
-@import "font";
