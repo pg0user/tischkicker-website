@@ -13,6 +13,7 @@ let clock = document.getElementById("seconds");
 
 const teamNameElement0 = document.getElementById('team--name-0');
 const teamNameElement1 = document.getElementById('team--name-1');
+const scoreElements = document.querySelector('.score--value');
 const scoreElement0 = document.querySelector('.score--value-0');
 const scoreElement1 = document.querySelector('.score--value-1');
 
@@ -38,7 +39,7 @@ var characterArray = {
         imgSrc: "./assets/images/profile/god_and_anime.jpg",
     },
     character5: {
-        name: "Shrek",
+        name: "SUS",
         id: "character5",
         imgSrc: "./assets/images/profile/Shrek.jpg",
     },
@@ -62,6 +63,10 @@ let selectedCharacters = [];
 let teamNames = [];
 const teamImages = [];
 
+let scores = [0, 0];
+let currentScore = 0;
+let activePlayer = 0;
+let playing = true;
 
 
 // FUNCTIONS
@@ -116,9 +121,16 @@ function setProfil(namesArr, imageArr){
         names[i].innerHTML = namesArr[i];
         images[i].src = imageArr[i];
     }
-
 }
-
+// TODO: EDIT
+const switchPlayer = function () {
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    for (let i = 0; i < players.length; i++) {
+        players[i].classList.toggle('player--active');
+    }
+};
 
 
 
@@ -180,24 +192,48 @@ btnTeam.addEventListener("click", function () {
     console.log(teamNames);
 
     // Save Team Image (each fighter)
-    if (teamImages.length !== 2) {
-        alert('Both players must select characters before starting the game! Please select a name');
-    }else if(teamNames.length !== 2){
-        alert('Both players must select a name before starting the game! Please select a name');
+    if (teamNames.length !== 2 || (teamNames[0] === '' || teamNames[1] === '')) {
+        alert('Beide Spieler müssen einen Teamnamen auswählen um spielen zu können! Bitte wähle deinen Teamnamen aus:');
+    }else if(teamImages.length !== 2){
+        alert('Beide Spieler müssen einen Charakter auswählen um spielen zu können! Bitte wähle deinen Charakter aus:');
+    }else if(teamNames.length !== 2 && teamImages.length !== 2){
+        alert('Beide Spieler müssen einen Teamnamen und einen Charakter auswählen um spielen zu können! Bitte wähle deinen Teamnamen und Charakter aus:');
     } else {
-        console.log('Selected Characters:', teamImages);
+        //transition
+        sectionTransition(sectionTeam,sectionCounter);
+        transition.classList.remove("hidden");
+        // Counter
+        countdown();
+
+        setProfil(teamNames, teamImages);
     }
-
-    //transition
-    sectionTransition(sectionTeam,sectionCounter);
-    transition.classList.remove("hidden");
-    // Counter
-    countdown();
-
-    setProfil(teamNames, teamImages);
 });
 
+// TODO: EDIT
+/*
+    if (playing) {
+        // 1. Add current score to active players score
+        scores[activePlayer] += currentScore;
+        // 2. Check if players score is >= 100
 
+        document.getElementById(`score--${activePlayer}`).textContent =
+            scores[activePlayer];
+
+        if (scores[activePlayer] >= 20) {
+            // Finish the game
+            playing = false;
+            diceEL.classList.add('hidden');
+            document
+                .querySelector(`.player--${activePlayer}`)
+                .classList.add('player--winner');
+            document
+                .querySelector(`.player--${activePlayer}`)
+                .classList.remove('player--active');
+        } else {
+            switchPlayer();
+        }
+    }
+*/
 
 
 
