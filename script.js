@@ -17,7 +17,7 @@ const scoreElements = document.querySelector('.score--value');
 const scoreElement0 = document.querySelector('.score--value-0');
 const scoreElement1 = document.querySelector('.score--value-1');
 
-var characterArray = {
+let characterArray = {
     character1: {
         name: "Pepe der Frosch!",
         id: "character1",
@@ -50,7 +50,89 @@ var characterArray = {
     },
 };
 
+class Game {
+    constructor() {
+        this._isPlaying = false;
+    }
 
+}
+
+class Team {
+    constructor(name = '', char = null, score = 0, scoreText = '0') {
+        this._name = name;
+        this._char = char;
+        this._score = score;
+        this._scoreText = scoreText;
+        this._scoreElement = null;
+    }
+
+
+    get name() {
+        return this._name;
+    }
+
+    set name(value) {
+        this._name = value;
+    }
+
+    get char() {
+        return this._char;
+    }
+
+    set char(value) {
+        this._char = value;
+    }
+
+    get score() {
+        return this._score;
+    }
+
+    set score(value) {
+        this._score = value;
+    }
+
+    get scoreText() {
+        return this._scoreText;
+    }
+
+    set scoreText(value) {
+        this._scoreText = value;
+    }
+
+    get scoreElement() {
+        return this._scoreElement;
+    }
+
+    set scoreElement(value) {
+        this._scoreElement = value;
+    }
+
+    goal(){
+        this._score++;
+        this._scoreText = this._score.toString();
+        this._scoreElement.textContent = this._scoreText;
+    }
+
+}
+
+const teams = [];
+
+const team1 = new Team();
+const team2 = new Team();
+
+teams.push(team1);
+teams.push(team2);
+console.log(teams);
+
+team1.scoreElement = document.querySelector('.score--value-0');
+team2.scoreElement = document.querySelector('.score--value-1');
+team1.goal();
+team1.char = characterArray.character1;
+
+
+
+
+console.log(team1.char);
 
 
 // Starting Condition
@@ -73,6 +155,7 @@ let playing = true;
 function selectCharacter(characterId) {
     const characterImage = document.getElementById(characterId);
     const playerId = characterId.split('-')[0];
+
     selectedCharacters[playerId] = characterImage.src;
     alert(`Player ${playerId} selected character: ${characterImage.alt}`);
 }
@@ -84,6 +167,7 @@ function sectionTransition(oldSection, newSection){
     newSection.classList.remove("hidden");
 }
 function countdown(){
+
     let secondsRemaining = 3;
     clock.innerText = secondsRemaining;
     clock.classList.add("animation");
@@ -136,21 +220,14 @@ const switchPlayer = function () {
 
 // TODO: Make "generatedHtml" to a dynamic function
 // GENERATE HTML
-let generatedHtml = Object.keys(characterArray).reduce(
-    (accum, currKey) =>
-        accum +
-        `<div id="${characterArray[currKey].id}" class="character" data-name="${characterArray[currKey].id}" rel="${characterArray[currKey].name}" onclick="${characterArray[currKey].id}">
+let generatedHtml = Object.keys(characterArray).reduce((accum, currKey) => accum +
+    `<div id="${characterArray[currKey].id}" class="character" data-name="${characterArray[currKey].id}" rel="${characterArray[currKey].name}" onclick="${characterArray[currKey].id}">
     <img class="character__img" src="${characterArray[currKey].imgSrc}" />
     <p class="character__name" ">${characterArray[currKey].name}</p>
   </div>`,
     ""
 );
 characters.forEach((element) => element.innerHTML = generatedHtml);
-/*
-let team1 = document.querySelector('.select-container-01').length > 0;
-let team2 = document.querySelector('.select-container-02').length > 0;
- */
-
 
 // CHARACTER SELECTION:
 const characterList = document.querySelectorAll(".character");
@@ -159,17 +236,12 @@ characterList.forEach((character) => {
         let container = character.parentNode;
         const containerId = container.className.split('_')[1];
 
-        for (let i = 0; i < character.childNodes.length; i++) {
-            if (character.childNodes[i].className == "character__img") {
-                let imageUrl = [];
-                imageUrl[containerId] = character.childNodes[i].src.split('/').slice(4, 8).join('/');
-                teamImages[containerId] = './' + imageUrl[containerId];
-            }
+        if (containerId === '0') {
+            team1.char = character;
+        } else if (containerId === '1') {
+            team2.char = character;
         }
-        if (container.querySelector(".character.active")) {
-            container.querySelector(".character.active").classList.remove("active");
-        }
-        character.classList.add("active");
+
     });
 });
 
@@ -208,6 +280,7 @@ btnTeam.addEventListener("click", function () {
         setProfil(teamNames, teamImages);
     }
 });
+
 
 // TODO: EDIT
 /*
