@@ -1,0 +1,33 @@
+.winner-container{
+  background-image: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+
+  .winner{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+
+    .winner--headline{
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    .winner--img{
+      margin-bottom: 10px;
+    }
+    .winner--name{
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+  }
+
+}
