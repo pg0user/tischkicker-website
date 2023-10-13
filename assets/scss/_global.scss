@@ -15,25 +15,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  .btn {
-    font-size: 20px;
-    letter-spacing: 5px;
-    font-weight: 400;
-    color: white;
-    padding: 10px 30px;
-    border: 2px solid white;
-    background: none;
-    text-transform: uppercase;
+}
+.btn {
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-weight: 400;
+  color: white;
+  padding: 10px 30px;
+  border: 2px solid white;
+  background: none;
+  text-transform: uppercase;
+  &-green{
+    color: #a6e07b;
+    border: 2px solid #a6e07b;
   }
-  &-low{
-
-  }
-  .btn:hover {
-    color: black;
-    font-weight: bold;
-    background-color: white;
-    opacity: 70%;
-  }
+}
+.btn:hover {
+  color: black;
+  font-weight: bold;
+  background-color: white;
+  opacity: 70%;
 }
 
 .section{
@@ -77,8 +78,9 @@ p {
 }
 
 .start--title {
+  font-size: 50px;
+  font-weight: 600;
   color: white;
-  font-size: 40px;
   margin-bottom: 10px;
 }
 
@@ -130,6 +132,9 @@ p {
 }
 
 .team--headline {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
   text-align: center;
   color: white;
   margin-left: 30px;

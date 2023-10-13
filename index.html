@@ -99,13 +99,20 @@
         <div class="score-players">
             <p class="score--name score--name-0"></p>
             <div class="score--values">
-                <p class="values score--value-0">0</p>
-                <p class="values score--value-1">0</p>
+                <p id="score--value-0" class="values">0</p>
+                <p id="score--value-1" class="values">0</p>
             </div>
             <p class="score--name score--name-1"></p>
         </div>
     </div>
+    <div class="flex">
+        <button class="py-5 px-10 bg-amber-700" onclick="goal(0)">Team 1 Goal</button>
+        <button class="py-5 px-10 bg-amber-700" onclick="goal(1)">Team 2 Goal</button>
+    </div>
     <!--<a href="https://www.freepik.com/free-vector/scoreboard-templates-set-with-electronic-display-score-space-team-names-can-be-used-sport-bars-cricket-game-baseball-basketball-football-hockey-matches_10173531.htm#query=game%20score&position=6&from_view=keyword&track=ais">Image by pch.vector</a> on Freepik-->
+</section>
+
+<section id="winner-section" class="section winner-container hidden">
     <div class="confetti">
         <div class="confetti-piece"></div>
         <div class="confetti-piece"></div>
@@ -121,8 +128,15 @@
         <div class="confetti-piece"></div>
         <div class="confetti-piece"></div>
     </div>
-</section>
+    <div class="winner">
+        <h3 class="winner--headline">Und Sieger ist</h3>
+        <img class="winner--img" src="./assets/images/profile/meditate.jpg" width="120px" height="120px">
+        <p class="winner--name">Team...</p>
+        <button id="winner--btn" class="btn btn-green" onclick="resetGame()">Neues Spiel</button>
+    </div>
+    <!--<a href="https://www.freepik.com/free-vector/scoreboard-templates-set-with-electronic-display-score-space-team-names-can-be-used-sport-bars-cricket-game-baseball-basketball-football-hockey-matches_10173531.htm#query=game%20score&position=6&from_view=keyword&track=ais">Image by pch.vector</a> on Freepik-->
 
+</section>
 
 
 </body>
