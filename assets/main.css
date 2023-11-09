@@ -357,8 +357,6 @@ a {
 
 .character {
   grid-column: span 1;
-  width: auto;
-  max-height: 120px;
   align-self: stretch;
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
@@ -464,10 +462,14 @@ a {
 .score {
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
-  padding-top: 20px;
+  height: auto;
+  max-width: 880px;
+  aspect-ratio: 1000/179;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .score-images {

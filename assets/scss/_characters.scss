@@ -62,8 +62,8 @@ a {
 
 .character {
   grid-column: span 1;
-  width: auto;
-  max-height: 120px;
+  //width: auto;
+  //max-height: 120px;
   align-self: stretch;
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
