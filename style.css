@@ -764,6 +764,11 @@ p {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+@media screen and (min-width: 700px) {
+  .team-container {
+    height: 100%;
+  }
+}
 
 .team {
   display: grid;

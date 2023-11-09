@@ -121,6 +121,9 @@ p {
   transition: opacity 10s;
   padding-top: 50px;
   padding-bottom: 50px;
+  @media screen and (min-width: 700px) {
+    height: 100%;
+  }
 }
 
 .team {
