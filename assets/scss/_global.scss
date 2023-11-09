@@ -116,6 +116,10 @@ p {
 
 /* TEAM classes */
 .team-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: fit-content;
   transition: opacity 10s;
