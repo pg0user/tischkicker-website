@@ -117,10 +117,11 @@ p {
 /* TEAM classes */
 .team-container {
   width: 100%;
+  height: unset;
   transition: opacity 10s;
   padding-top: 50px;
   padding-bottom: 50px;
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 1000px) {
     height: 100%;
   }
 }
