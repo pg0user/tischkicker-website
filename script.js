@@ -22,12 +22,12 @@ var characterArray = {
     character1: {
         name: "Pepe der Frosch!",
         id: "character1",
-        imgSrc: "./assets/images/profile/meditate.jpg",
+        imgSrc: "./assets/images/profile/kermit2.png",
     },
     character2: {
         name: "Kabosu!",
         id: "character2",
-        imgSrc: "./assets/images/profile/good_boi.jpg",
+        imgSrc: "./assets/images/profile/kabuso.png",
     },
     character3: {
         name: "EMOTIONAL DAMAGE!",
@@ -152,8 +152,11 @@ function goal(teamid){
     }
 }
 function resetGame(){
+    scoreValue0 = 0;
+    scoreValue1 = 0;
     scoreValueEl0.textContent = 0;
     scoreValueEl1.textContent = 0;
+
 
     document.getElementById('team--name-0').value = '';
     document.getElementById('team--name-1').value = '';
@@ -219,28 +222,6 @@ document.getElementById("team--btn").addEventListener("click", function () {
         setProfil(teamNames, teamImages);
     }
 });
-
-// onchange="checkFunc"
-/*
-if (playing) {
-    scores[i].addEventListener("change", (event) => {
-        for(let i = 0; i < scores.length; i++){
-            //scores[i].textContent = event.target.value;
-            if (scores[i].textContent === 10) {
-                // Finish the game
-                playing = false;
-                scores[i] === scores[0] ? scores[1].classList.add("hidden") : scores[0].classList.add("hidden");
-                document.querySelector('.score-images').style.justifyContent = "center";
-                document.querySelector('score--btn').classList.remove('hidden');
-                document.querySelector('score-players').classList.add('hidden');
-            } else {
-            }
-        }
-    });
-}
-
-*/
-
 
 
 
