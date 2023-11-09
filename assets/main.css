@@ -168,15 +168,13 @@ p {
 /* TEAM classes */
 .team-container {
   width: 100%;
-  height: unset;
+  height: fit-content;
   transition: opacity 10s;
   padding-top: 50px;
   padding-bottom: 50px;
-}
-@media screen and (min-width: 1000px) {
-  .team-container {
+  /*@media screen and (min-width: 1000px) {
     height: 100%;
-  }
+  }*/
 }
 
 .team {
