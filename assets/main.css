@@ -169,16 +169,18 @@ p {
 .team-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  height: fit-content;
+  height: 100%;
   transition: opacity 10s;
-  padding-top: 50px;
-  padding-bottom: 50px;
   /*@media screen and (min-width: 1000px) {
     height: 100%;
   }*/
+}
+
+.team-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .team {
