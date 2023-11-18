@@ -20,7 +20,7 @@ let scores = document.querySelectorAll(`.values`);
 
 var characterArray = {
     character1: {
-        name: "Pepe der Frosch!",
+        name: "Kermit der Frosch!",
         id: "character1",
         imgSrc: "./assets/images/profile/kermit2.png",
     },
@@ -30,7 +30,7 @@ var characterArray = {
         imgSrc: "./assets/images/profile/kabuso.png",
     },
     character3: {
-        name: "EMOTIONAL DAMAGE!",
+        name: "Emotional Damage!",
         id: "character3",
         imgSrc: "./assets/images/profile/emotional_damage.jpg",
     },
@@ -40,12 +40,12 @@ var characterArray = {
         imgSrc: "./assets/images/profile/god_and_anime.jpg",
     },
     character5: {
-        name: "SUS",
+        name: "Shrek!",
         id: "character5",
         imgSrc: "./assets/images/profile/Shrek.jpg",
     },
     character6: {
-        name: "Essential Crisis",
+        name: "Pikachuuuu!",
         id: "character6",
         imgSrc: "./assets/images/profile/pikachu.jpg",
     },
@@ -138,19 +138,23 @@ function checkIfWon(score, element){
         sectionTransition(sectionScore, sectionWinner);
     }
 }
-function goal(teamid){
-    if(teamid === 0){
-        scoreValue0++;
-        document.getElementById(`score--value-${teamid}`).textContent = scoreValue0.toString();
-        checkIfWon(scoreValue0, 'scoreValue0');
-    }else if(teamid === 1){
-        scoreValue1++;
-        document.getElementById(`score--value-${teamid}`).textContent = scoreValue1.toString();
-        checkIfWon(scoreValue1, 'scoreValueEl1');
-    }else{
-        console.log('An Error occurred at line 70')
+
+/* FOR TESTING:
+    function goal(teamid){
+        if(teamid === 0){
+            scoreValue0++;
+            document.getElementById(`score--value-${teamid}`).textContent = scoreValue0.toString();
+            checkIfWon(scoreValue0, 'scoreValue0');
+        }else if(teamid === 1){
+            scoreValue1++;
+            document.getElementById(`score--value-${teamid}`).textContent = scoreValue1.toString();
+            checkIfWon(scoreValue1, 'scoreValueEl1');
+        }else{
+            console.log('An Error occurred at line 70')
+        }
     }
-}
+*/
+
 function resetGame(){
     scoreValue0 = 0;
     scoreValue1 = 0;
@@ -224,6 +228,25 @@ document.getElementById("team--btn").addEventListener("click", function () {
 });
 
 
+// Webserver (Kontakt zu Sensoren)
+const socket = new WebSocket('ws://192.168.4.1:81');
+socket.addEventListener('open', function (event) {
+    socket.send('Hello Server!');
+});
+socket.addEventListener('message', function (event) {
+    console.log('Message from server ', event.data);
+    if(event.data == "GELB"){
+        scoreValue1++;
+        document.getElementById("punkteGELB").innerText = scoreValue1;
+    }else if(event.data == "ROT") {
+        scoreValue0++;
+        document.getElementById("punkteROT").innerText = scoreValue0;
+    }
+});
+
+socket.addEventListener('close', function (event) {
+    console.log('The connection has been closed');
+});
 
 
 
